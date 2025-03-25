@@ -43,15 +43,18 @@ void display(){
 
   // Rotate when user changes rotate_x and rotate_y
   
-   if(rotation % 4 == 0)
-     rotate_y += 1;
-   if(rotation % 4 == 1)
-     rotate_y -= 2;
-   if(rotation % 4 == 2)
-     rotate_x += 1;
-   if(rotation % 4 == 3)
-     rotate_x -= 2;
-   rotation = rotation + 2;
+  switch(rotation % 4)
+  {
+     case 0: rotate_y += 1;
+             break;
+     case 1: rotate_y -= 2;
+             break;   
+     case 2: rotate_x += 1;
+             break;
+     case 3: rotate_x -= 2;
+             break;
+  }
+  rotation = rotation + 2;
   
   glRotatef( rotate_x, 1.0, 0.0, 0.0 );
   glRotatef( rotate_y, 0.0, 1.0, 0.0 );
